@@ -9,34 +9,38 @@ import { Component } from '@angular/core';
   styleUrl: './demo.component.css'
 })
 export class DemoComponent {
-  files: File[] = [];
-  results: { name: string; score: number; skills: string }[] = [];
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-  }
+  file: File | null = null;
+  analysisResult: { name: string; score: number; skills: string } | null = null;
 
   onDrop(event: DragEvent) {
     event.preventDefault();
-    if (event.dataTransfer?.files) {
-      this.addFiles(event.dataTransfer.files);
+    if (event.dataTransfer && event.dataTransfer.files.length > 0) {
+      this.file = event.dataTransfer.files[0];
     }
   }
 
-  onFileSelect(event: any) {
-    this.addFiles(event.target.files);
-  }
+onFileSelect(event: any) {
+  const allowedExtensions = ['pdf', 'doc', 'docx'];
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    const fileExtension = file.name.split('.').pop().toLowerCase();
 
-  addFiles(fileList: FileList) {
-    Array.from(fileList).forEach(file => this.files.push(file));
+    if (allowedExtensions.includes(fileExtension)) {
+      this.file = file;
+    } else {
+      alert('Invalid file type. Please upload a .pdf, .doc, or .docx file.');
+    }
   }
+}
 
-  analyzeFiles() {
-    // Replace this part with a real backend call to your springboot service
-    this.results = this.files.map(file => ({
-      name: file.name.split('.')[0],
-      score: Math.floor(Math.random() * 40 + 60), // Random score for mock
-      skills: 'Leadership, Java, Communication' // Static skills for mock
-    }));
+
+  analyzeFile() {
+    if (this.file) {
+      this.analysisResult = {
+        name: this.file.name,
+        score: Math.floor(Math.random() * 50) + 50,
+        skills: 'Java, Python, Teamwork'
+      };
+    }
   }
 }
