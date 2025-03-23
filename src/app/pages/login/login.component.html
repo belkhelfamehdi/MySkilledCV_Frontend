@@ -4,33 +4,51 @@
       <img src="./Logo.png" alt="My Skilled CV" class="h-24 mb-2" />
     </div>
 
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Sign in to <span class="text-indigo-600">My Skilled CV</span></h2>
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+      Sign in to <span class="text-indigo-600">My Skilled CV</span>
+    </h2>
 
-    <form class="space-y-4">
+    <!-- Message d'erreur global -->
+    <p *ngIf="errorMessage" class="text-red-500 text-sm text-center mb-4">
+      {{ errorMessage }}
+    </p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Email Input -->
       <div>
         <label for="email" class="block text-gray-600 font-medium mb-1">Email</label>
-        <input name="email" type="email" placeholder="you@example.com"
+        <input formControlName="email" type="email" placeholder="you@example.com"
           class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+        <p *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-500 text-sm mt-1">
+          Email invalide
+        </p>
       </div>
 
-      <div>
+      <!-- Password Input avec toggle visibilité -->
+      <div class="relative">
         <label for="password" class="block text-gray-600 font-medium mb-1">Password</label>
-        <input name="password" type="password" placeholder="Your password"
+        <input [type]="'password'" formControlName="password" placeholder="Your password"
           class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+        <p *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-red-500 text-sm mt-1">
+          Mot de passe trop court
+        </p>
       </div>
 
-      <button type="submit"
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="loginForm.invalid"
         class="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition cursor-pointer">
         Sign In
       </button>
     </form>
 
+    <!-- Separator -->
     <div class="flex items-center my-6">
       <hr class="w-full border-gray-200" />
       <span class="px-3 text-gray-400 text-sm">OR</span>
       <hr class="w-full border-gray-200" />
     </div>
 
+    <!-- Social Login -->
     <button
       class="w-full py-3 border border-gray-300 flex items-center justify-center gap-2 rounded-xl font-semibold hover:bg-gray-100 transition mb-3 cursor-pointer">
       <ng-icon name="bootstrapGoogle" />
@@ -43,6 +61,7 @@
       Continue with GitHub
     </button>
 
+    <!-- Register Link -->
     <p class="text-center text-gray-500 mt-6 text-sm">
       Don't have an account?
       <a routerLink="/register" class="text-indigo-600 font-semibold hover:underline">Sign Up</a>

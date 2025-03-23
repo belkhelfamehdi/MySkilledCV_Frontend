@@ -10,10 +10,10 @@
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
       <div>
-        <label for="name" class="block text-gray-600 font-medium mb-1">Full Name</label>
-        <input formControlName="name" type="text" placeholder="Fullname"
+        <label for="fullName" class="block text-gray-600 font-medium mb-1">Full Name</label>
+        <input formControlName="fullName" type="text" placeholder="Fullname"
           class="w-full p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
-        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched"
+        <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched"
           class="text-red-500 text-sm mt-1">
           Full name is required.
         </div>

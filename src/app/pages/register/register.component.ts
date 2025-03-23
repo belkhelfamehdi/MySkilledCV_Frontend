@@ -19,7 +19,7 @@ export class RegisterComponent {
 
   constructor(private readonly fb: FormBuilder, private readonly authService: AuthService, private readonly router: Router) {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
+      fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -28,7 +28,10 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
-        next: () => { this.router.navigate(['/']); },
+        next: (response) => {
+          this.authService.saveToken(response.token);
+          this.router.navigate(['/']);
+        },
         error: (err) => alert(err.error || 'Erreur lors de l’inscription')
       });
     }
