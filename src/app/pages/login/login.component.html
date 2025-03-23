@@ -20,7 +20,7 @@
         <input formControlName="email" type="email" placeholder="you@example.com"
           class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
         <p *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-500 text-sm mt-1">
-          Email invalide
+          Please enter a valid email address
         </p>
       </div>
 
@@ -30,7 +30,7 @@
         <input [type]="'password'" formControlName="password" placeholder="Your password"
           class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
         <p *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-red-500 text-sm mt-1">
-          Mot de passe trop court
+          Password must be at least 6 characters
         </p>
       </div>
 

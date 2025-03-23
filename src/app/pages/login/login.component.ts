@@ -34,7 +34,7 @@ export class LoginComponent {
           this.router.navigate(['/']);
         },
         error: (err) => {
-          this.errorMessage = err.error || 'Échec de la connexion. Vérifiez vos identifiants.';
+          this.errorMessage = err.error || 'Please check your email and password.';
         }
       });
     }
