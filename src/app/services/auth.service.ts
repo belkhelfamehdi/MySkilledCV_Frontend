@@ -1,6 +1,6 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, tap, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -26,13 +26,21 @@ export class AuthService {
   }
 
   login(credentials: Record<string, any>): Observable<any> {
-    return this.http.post(`${this.baseUrl}/authenticate`, credentials);
+    return this.http.post(`${this.baseUrl}/authenticate`, credentials).pipe(
+      tap((response: any) => this.saveToken(response.token))
+    );
+  }
+
+  hello(): any {
+    return this.http.get("http://localhost:8080/api/v1/demo-controller/").subscribe((response) => {
+      console.log(response);
+    });
   }
 
   saveToken(token: string): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('token', token);
-      this.authState.next(true); // Update state
+      this.authState.next(true);
     }
   }
 
@@ -42,6 +50,18 @@ export class AuthService {
     }
     return null;
   }
+
+  refreshToken(): Observable<string> {
+    return this.http.post<string>(`${this.baseUrl}/refresh-token`, {}).pipe(
+      tap((newToken: string) => this.saveToken(newToken)),
+      catchError((error) => {
+        this.logout();
+        return throwError(() => new Error('Session expired.'));
+      })
+    );
+  }
+
+
 
   logout(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -54,4 +74,5 @@ export class AuthService {
   isLoggedIn(): Observable<boolean> {
     return this.authState.asObservable();
   }
+
 }

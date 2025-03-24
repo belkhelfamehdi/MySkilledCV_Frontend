@@ -6,13 +6,14 @@ import { DemoComponent } from './pages/demo/demo.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './guard/auth.guard';
+import { notAuthGuard } from './guard/not-auth.guard';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'features', component: FeaturesComponent},
   {path: 'demo', component: DemoComponent, canActivate: [authGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent, canActivate: [notAuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [notAuthGuard]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];

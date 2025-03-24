@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule, Router } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { bootstrapGithub, bootstrapGoogle, bootstrapEye, bootstrapEyeSlash } from '@ng-icons/bootstrap-icons';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.component.css'],
   viewProviders: [provideIcons({ bootstrapGoogle, bootstrapGithub, bootstrapEye, bootstrapEyeSlash })]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string | null = null;
   showPassword: boolean = false;
@@ -42,5 +43,17 @@ export class LoginComponent {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
+  }
+
+  isLoggedIn = false;
+  private authSubscription!: Subscription;
+
+  ngOnInit() {
+    this.authSubscription = this.authService.isLoggedIn().subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });
+    if (this.isLoggedIn) {
+      this.router.navigate(['/']);
+    }
   }
 }
