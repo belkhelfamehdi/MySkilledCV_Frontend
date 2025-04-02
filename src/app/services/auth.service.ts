@@ -8,7 +8,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly baseUrl = 'http://localhost:8080/api/v1/auth';
+  private readonly baseUrl = 'http://localhost:8081/api/v1/auth';
   private readonly authState = new BehaviorSubject<boolean>(false);
 
   constructor(
@@ -29,12 +29,6 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/authenticate`, credentials).pipe(
       tap((response: any) => this.saveToken(response.token))
     );
-  }
-
-  hello(): any {
-    return this.http.get("http://localhost:8080/api/v1/demo-controller/").subscribe((response) => {
-      console.log(response);
-    });
   }
 
   saveToken(token: string): void {

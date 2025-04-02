@@ -9,12 +9,9 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'job_platform';
 
   constructor(private readonly authService: AuthService) { }
 
-  ngOnInit() {
-    console.log(console.log(this.authService.hello()));
-    }
 }
