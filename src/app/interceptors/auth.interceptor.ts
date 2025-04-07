@@ -18,7 +18,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: HttpErrorResponse) => {
       if (error.status === 401 && !req.url.includes('/auth/refresh-token')) {
         return http
-          .post<{ token: string }>('http://localhost:8080/api/v1/auth/refresh-token', {}, { withCredentials: true })
+          .post<{ token: string }>('http://localhost:8081/api/v1/auth/refresh-token', {}, { withCredentials: true })
           .pipe(
             switchMap((response) => {
               authService.saveToken(response.token);

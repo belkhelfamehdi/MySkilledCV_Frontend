@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  loginWithGoogle() {
+    window.location.href = 'http://localhost:8081/oauth2/authorization/google';
+  }
+
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }

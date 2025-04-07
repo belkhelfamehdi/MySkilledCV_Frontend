@@ -69,4 +69,19 @@ export class AuthService {
     return this.authState.asObservable();
   }
 
+  handleOAuth2Success() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const accessToken = urlParams.get('accessToken');
+    const refreshToken = urlParams.get('refreshToken');
+
+    if (accessToken && refreshToken) {
+      this.saveToken(accessToken);
+
+      this.router.navigate(['/']);
+    } else {
+      console.error('Authentication failed: Tokens not found.');
+    }
+  }
+
+
 }
