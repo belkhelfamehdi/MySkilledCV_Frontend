@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './guard/auth.guard';
 import { notAuthGuard } from './guard/not-auth.guard';
+import { OAuth2RedirectComponent } from './components/oauth2-redirect/oauth2-redirect.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,4 +17,5 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [notAuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [notAuthGuard]},
   {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: 'oauth2-redirect', component: OAuth2RedirectComponent}
 ];

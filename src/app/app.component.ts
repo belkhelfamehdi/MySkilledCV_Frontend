@@ -9,13 +9,9 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'MySkilledCV';
 
   constructor(private readonly authService: AuthService) { }
-
-  ngOnInit() {
-    this.authService.handleOAuth2Success();
-  }
 
 }
