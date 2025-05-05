@@ -1,68 +1,147 @@
+<section class=" text-white min-h-screen flex flex-col font-sans">
+  <header class="p-6 flex justify-between items-center border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
+    <img src="/Logo.png" class="w-16 h-auto" alt="">
+    <nav class="space-x-4">
+      <a href="#features" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Features</a>
+      <a href="#pricing" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Pricing</a>
+      <a href="#testimonials" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Testimonials</a>
+      <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition-colors duration-200">Contact</a>
+      <button class="bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-600 hover:to-indigo-600 text-white px-4 py-2 rounded-xl shadow-md transition duration-300">Get Started</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-20">
-  <div class="container mx-auto text-center px-6">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      Boost Your Hiring with <span class="text-yellow-300">AI-Powered</span> Resume Screening
-    </h1>
-    <p class="text-xl mb-8">
-      Upload resumes. Let AI analyze and rank candidates — faster and smarter.
+<main class="flex-1 flex items-center justify-center px-6 py-24 relative overflow-hidden">
+  <img src="/landing.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover -z-10" />
+  <div class="absolute inset-0 bg-gray-950 opacity-50 -z-10"></div>
+
+  <div class="max-w-4xl text-center z-10">
+    <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      Smarter Hiring with <span class="text-cyan-400">AI-Powered Resumes</span>
+    </h2>
+    <p class="text-gray-300 mb-10 text-lg">
+      Upload resumes, analyze candidates, and hire faster with cutting-edge AI insights.
     </p>
-    <div class="flex justify-center gap-4">
-      <button class="bg-yellow-300 text-black px-6 py-3 rounded-2xl text-lg hover:bg-yellow-400 hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-300 cursor-pointer">
-        Try Demo
+    <div class="flex justify-center gap-6">
+      <button class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium shadow-lg transition transform hover:scale-105">
+        Try it Now
       </button>
-      <button class="bg-white text-indigo-700 px-6 py-3 rounded-2xl text-lg hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-300 cursor-pointer">
-        Watch Video
+      <button class="border border-cyan-400 text-cyan-400 hover:bg-cyan-600 hover:text-white px-8 py-3 rounded-full text-lg font-medium transition transform hover:scale-105">
+        See a Demo
       </button>
     </div>
   </div>
-</section>
+</main>
 
-<!-- Features Section -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-10">Why Choose Our Platform?</h2>
-    <div class="grid gap-8 md:grid-cols-4">
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
-        <div class="text-indigo-600 text-4xl mb-4">📥</div>
-        <h3 class="text-xl font-semibold mb-2">Drag & Drop Upload</h3>
-        <p class="text-gray-500">Quickly upload resumes with a simple drag & drop interface.</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
-        <div class="text-indigo-600 text-4xl mb-4">🤖</div>
-        <h3 class="text-xl font-semibold mb-2">AI Ranking</h3>
-        <p class="text-gray-500">Get instant AI-powered analysis and candidate scoring.</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
-        <div class="text-indigo-600 text-4xl mb-4">📡</div>
-        <h3 class="text-xl font-semibold mb-2">Real-time Alerts</h3>
-        <p class="text-gray-500">Stay informed with WebSocket-based notifications.</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
-        <div class="text-indigo-600 text-4xl mb-4">☁️</div>
-        <h3 class="text-xl font-semibold mb-2">Cloud Native</h3>
-        <p class="text-gray-500">Fully scalable microservices with enterprise security.</p>
+
+  <!-- Features Section -->
+  <section id="features" class="bg-gradient-to-b from-gray-900 to-gray-950 py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold mb-6">Why Choose MySkilledCV?</h3>
+      <p class="text-gray-400 mb-16 text-lg">Powerful tools designed to simplify hiring decisions, accelerate recruitment, and ensure talent alignment.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:ring-2 hover:ring-cyan-500 transition duration-300">
+          <div class="text-cyan-400 text-4xl mb-4">📄</div>
+          <h4 class="text-xl font-semibold mb-2 text-cyan-400">AI Resume Analysis</h4>
+          <p class="text-gray-300">Extract key qualifications, experience, and skills using OpenAI-powered models.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:ring-2 hover:ring-cyan-500 transition duration-300">
+          <div class="text-cyan-400 text-4xl mb-4">📊</div>
+          <h4 class="text-xl font-semibold mb-2 text-cyan-400">Candidate Ranking</h4>
+          <p class="text-gray-300">Rank applicants based on AI-generated scoring and job relevance.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:ring-2 hover:ring-cyan-500 transition duration-300">
+          <div class="text-cyan-400 text-4xl mb-4">📈</div>
+          <h4 class="text-xl font-semibold mb-2 text-cyan-400">Live Dashboard</h4>
+          <p class="text-gray-300">Real-time insights into candidates and job stats with drag-and-drop tools.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Demo Call To Action -->
-<section class="py-20 bg-indigo-700 text-white text-center">
-  <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Recruitment?</h2>
-  <p class="text-xl mb-8">Try our AI-driven screening tool and discover a smarter hiring process.</p>
-  <button class="bg-yellow-300 text-black px-8 py-4 rounded-2xl text-lg hover:bg-yellow-400 hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-300 cursor-pointer">
-    Start Your Free Demo
-  </button>
-</section>
+  <!-- Pricing Section -->
+  <section id="pricing" class="bg-gray-950 py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold mb-6">Pricing Plans</h3>
+      <p class="text-gray-400 mb-16 text-lg">Flexible pricing to support your hiring journey.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border border-cyan-600 hover:scale-105 transition duration-300">
+          <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Starter</h4>
+          <p class="text-gray-400 mb-6">Best for small teams</p>
+          <p class="text-3xl font-bold text-white mb-6">$29/mo</p>
+          <ul class="text-gray-300 space-y-2">
+            <li>✔ 10 job postings</li>
+            <li>✔ Basic AI insights</li>
+            <li>✔ Email support</li>
+          </ul>
+        </div>
+        <div class="bg-cyan-500 p-8 rounded-2xl shadow-xl text-white transform scale-105">
+          <h4 class="text-2xl font-semibold mb-4">Pro</h4>
+          <p class="mb-6">For fast-growing teams</p>
+          <p class="text-3xl font-bold mb-6">$99/mo</p>
+          <ul class="space-y-2">
+            <li>✔ Unlimited postings</li>
+            <li>✔ Full AI tools</li>
+            <li>✔ Priority support</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border border-cyan-600 hover:scale-105 transition duration-300">
+          <h4 class="text-2xl font-semibold text-cyan-400 mb-4">Enterprise</h4>
+          <p class="text-gray-400 mb-6">Custom packages for scale</p>
+          <p class="text-3xl font-bold text-white mb-6">Contact Us</p>
+          <ul class="text-gray-300 space-y-2">
+            <li>✔ API access</li>
+            <li>✔ Dedicated support</li>
+            <li>✔ Onboarding help</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Trusted by Section -->
-<section class="py-16 bg-gray-100 text-center">
-  <h2 class="text-3xl font-bold mb-10">Trusted by HR Teams Worldwide</h2>
-  <div class="flex flex-wrap justify-center gap-8">
-    <img src="./logo1.png" alt="Company 1" class="h-12 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300">
-    <img src="./logo2.png" alt="Company 2" class="h-12 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300">
-    <img src="./logo3.png" alt="Company 3" class="h-12 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300">
-    <img src="./logo4.png" alt="Company 4" class="h-12 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300">
-  </div>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-gray-900 py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-bold mb-6">What Our Users Say</h3>
+      <p class="text-gray-400 mb-16 text-lg">Real feedback from real hiring teams.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+          <p class="text-gray-300 italic mb-4">“This platform changed our hiring process. Insightful, fast, and reliable.”</p>
+          <p class="text-cyan-400 font-semibold">Sarah T., HR Lead</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+          <p class="text-gray-300 italic mb-4">“We hired 2x faster thanks to the live AI scoring and dashboard.”</p>
+          <p class="text-cyan-400 font-semibold">James K., Tech Recruiter</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+          <p class="text-gray-300 italic mb-4">“Smart, simple, and scalable. Perfect for our enterprise team.”</p>
+          <p class="text-cyan-400 font-semibold">Maya L., Talent Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gradient-to-b from-gray-950 to-gray-900 py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h3 class="text-4xl font-bold mb-6">Get in Touch</h3>
+      <p class="text-gray-400 mb-12 text-lg">Want a demo, help, or custom plan? Message us below.</p>
+      <form class="space-y-6 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+        <div class="flex flex-col md:flex-row gap-6">
+          <input type="text" placeholder="Your Name" class="flex-1 px-4 py-3 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <input type="email" placeholder="Email Address" class="flex-1 px-4 py-3 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+        </div>
+        <textarea placeholder="Your Message" rows="5" class="w-full px-4 py-3 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+        <button class="w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-xl text-lg font-medium transition duration-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-6 text-center text-sm text-gray-600 border-t border-gray-800">
+    © 2025 MySkilledCV. All rights reserved.
+  </footer>
 </section>

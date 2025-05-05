@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error: (err) => {
-          this.errorMessage = err.error || 'Please check your email and password.';
+          this.errorMessage = err.error ?? 'Please check your email and password.';
         }
       });
     }
@@ -43,6 +43,10 @@ export class LoginComponent implements OnInit {
 
   loginWithGoogle() {
     window.location.href = 'http://localhost:8081/oauth2/authorization/google';
+  }
+
+  loginWithGithub() {
+    window.location.href = 'http://localhost:8081/oauth2/authorization/github';
   }
 
   togglePasswordVisibility() {
